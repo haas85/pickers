@@ -1,0 +1,88 @@
+.tcontainer{
+    padding: 5px;
+    text-align: center;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    border-radius: 10px;
+    background-color: #2d669d;
+    color:black;
+    position: absolute;
+    z-index: 2;
+}
+.hcontainer{
+    float:left;
+    margin-bottom: 5px;
+}
+.hcontainer span{
+    color: #d4d5d7;
+    font-weight: bold;
+    font-size: 1.5em;
+}
+.mcontainer{
+    float:left;
+    margin-left: 3px;
+}
+.timebutton{
+    cursor:pointer;
+    margin-bottom: 2px;
+    margin-top: 2px;
+    padding-bottom: 3px;
+    padding-top: 3px;
+    background-color: #d4d5d7;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+.plustime{
+    -webkit-border-top-left-radius: 10px;
+    -webkit-border-top-right-radius: 10px;
+    -moz-border-radius-topleft: 10px;
+    -moz-border-radius-topright: 10px;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+.minustime{
+    -webkit-border-bottom-right-radius: 10px;
+    -webkit-border-bottom-left-radius: 10px;
+    -moz-border-radius-bottomright: 10px;
+    -moz-border-radius-bottomleft: 10px;
+    border-bottom-right-radius: 10px;
+    border-bottom-left-radius: 10px;
+}
+.accept{
+    border-top: 2px solid #d4d5d7;
+    color: #d4d5d7;
+    clear: both;
+    text-align: center;
+    font-family:Sans-serif, serif;
+    cursor:pointer;
+}
+.thours , .tminutes, .timebutton, .accept{
+    font-size: 1.5em;
+    font-weight: bold;
+    text-align: center;
+}
+.timeinput{
+    float:left;
+}
+
+@media only screen and (max-width: 980px){
+    #quoTimePicker{
+        top: 0;
+        left:0;
+        position: absolute;
+        z-index: 1;
+        background-color: rgba(0, 0, 0, 0.8);
+        width:100%;
+        height: 100%;
+    }
+}
+
+@media screen and (min-width: 980px){
+    .tcontainer{
+        width:350px;
+    }
+}
