@@ -149,7 +149,7 @@ quoTimePicker = (function(quo) {
     var prev;
     prev = document.querySelectorAll('#quoTimePicker');
     if (prev.length !== 0) {
-      return prev[0].parentNode.parentNode.removeChild(prev[0].parentNode);
+      return prev[0].parentNode.removeChild(prev[0]);
     }
   };
   return {

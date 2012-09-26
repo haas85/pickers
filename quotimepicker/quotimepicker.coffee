@@ -107,7 +107,7 @@ quoTimePicker = ((quo) ->
     removePicker = ->
         prev = document.querySelectorAll '#quoTimePicker'
         if prev.length isnt 0
-            prev[0].parentNode.parentNode.removeChild prev[0].parentNode
+            prev[0].parentNode.removeChild prev[0]
     {
         init:init,
     }
