@@ -38,9 +38,7 @@ quoDatePicker = (function(quo) {
     launcherInput = input;
     removePicker();
     picker = document.createElement('div');
-    picker.id = "quoDatePicker";
-    picker.innerHTML = '<div class="dateContainer"><div class="actualDate"></div><div class="dcontainer"><p id="plusd" class="plusdate datebutton">+</p><input class="tdays dateinput\
-            " size="2" maxlength="2" type="number" max="31" min="1" format="[0-9]*"/><span>/</span><div style="clear:both"></div><p id="minusd" class="minusdate datebutton">-</p></div><div class="mcontainer"><p id="plusm" class="plusdate datebutton">+</p><input class="tmonths dateinput" size="2" maxlength="2" type="number" max="12" min="1" format="[0-9]*"/><span>/</span><div style="clear:both"></div><p id="minusm" class="minusdate datebutton">-</p></div><div class="ycontainer"><p id="plusy" class="plusdate datebutton">+</p><input class="tyears dateinput" size="4" maxlength="4" type="number" max="9999" min="00" format="[0-9]*"/><div style="clear:both"></div><p id="minusy" class="minusdate datebutton">-</p></div><div class="accept">OK</div></div>';
+    picker.innerHTML = '<div id="quoDatePicker"><div class="dateContainer"><div class="actualDate"></div><div class="dcontainer"><p id="plusd" class="plusdate datebutton">+</p><input class="tdays dateinput" size="2" maxlength="2" type="number" max="31" min="1" format="[0-9]*"/><span>/</span><p id="minusd" class="minusdate datebutton">-</p></div><div class="mcontainer"><p id="plusm" class="plusdate datebutton">+</p><input class="tmonths dateinput" size="2" maxlength="2" type="number" max="12" min="1" format="[0-9]*"/><span>/</span><p id="minusm" class="minusdate datebutton">-</p></div><div class="ycontainer"><p id="plusy" class="plusdate datebutton">+</p><input class="tyears  dateinput" size="4" maxlength="4" type="number" max="9999" min="00" format="[0-9]*"/><p id="minusy" class="minusdate datebutton">-</p></div><div class="accept">OK</div></div></div>';
     input.parentNode.insertBefore(picker);
     setSize();
     setPosition(input);
@@ -63,12 +61,12 @@ quoDatePicker = (function(quo) {
   setSize = function() {
     var buttonwidth, containerWidth, inputwidth;
     if (!window.quomobile) {
-      buttonwidth = (400 / 3) - 3;
-      inputwidth = buttonwidth - 20;
-      quo('.datebutton').style('width', "" + buttonwidth + "px");
-      return quo('input.dateinput').style('width', "" + inputwidth + "px");
+      buttonwidth = quo('.datebutton')[0].offsetWidth;
+      inputwidth = quo('.dateinput')[0].offsetWidth;
+      quo('.datebutton').style('width', "" + inputwidth + "px");
+      return quo('.dateinput').style('width', "" + inputwidth + "px");
     } else {
-      containerWidth = Quo.environment().screen.width - 60;
+      containerWidth = environment.screen.width - 60;
       $$('.dateContainer').style('width', "" + containerWidth + "px");
       buttonwidth = (containerWidth / 3) - 3;
       $$('.datebutton').style('width', "" + buttonwidth + "px");

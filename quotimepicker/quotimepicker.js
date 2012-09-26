@@ -32,9 +32,10 @@ quoTimePicker = (function(quo) {
     var accept, picker, re, tbuttons;
     launcherInput = input;
     removePicker();
+    console.log(input);
+    console.log(input.parentNode);
     picker = document.createElement('div');
-    picker.id = "quoTimePicker";
-    picker.innerHTML = '<div class="tcontainer"><div class="hcontainer"><p id="plush" class="plustime timebutton">+</p><input class="thours timeinput" size="2" maxlength="2" type="number" max="23" min="00" format="[0-9]*"/><span>:</span><div style="clear:both;"></div><p id="minush" class="minustime timebutton">-</p></div><div class="mcontainer"><p id="plusm" class="plustime timebutton">+</p><input class="tminutes timeinput" size="2" maxlength="2" type="number" max="59" min="00" pattern="[0-9]*"/><div style="clear:both;"></div><p id="minusm" class="minustime timebutton">-</p></div><div class="accept">OK</div></div>';
+    picker.innerHTML = '<div id="quoTimePicker"><div class="tcontainer"><div class="hcontainer"><p id="plush" class="plustime timebutton">+</p><input class="thours timeinput" size="2" maxlength="2" type="number" max="23" min="00" format="[0-9]*"/><span>:</span><p id="minush" class="minustime timebutton">-</p></div><div class="mcontainer"><p id="plusm" class="plustime timebutton">+</p><input class="tminutes timeinput" size="2" maxlength="2" type="number" max="59" min="00" pattern="[0-9]*"/><p id="minusm" class="minustime timebutton">-</p></div><div class="accept">OK</div></div></div>';
     input.parentNode.insertBefore(picker, input.nextSibling);
     setSize();
     setPosition(input);
@@ -56,12 +57,17 @@ quoTimePicker = (function(quo) {
   setSize = function() {
     var buttonwidth, containerWidth, inputwidth;
     if (!window.quomobile) {
-      buttonwidth = (350 / 2) - 3;
-      inputwidth = buttonwidth - 20;
-      quo('.timebutton').style('width', "" + buttonwidth + "px");
-      return quo('input.timeinput').style('width', "" + inputwidth + "px");
+      buttonwidth = quo('.plustime')[0].offsetWidth;
+      inputwidth = quo('.thours')[0].offsetWidth;
+      quo('.timebutton').style('width', "" + inputwidth + "px");
+      quo('.thours').style('width', "" + inputwidth + "px");
+      if (buttonwidth > inputwidth) {
+        return quo('.timebutton').style('margin-left', "" + ((buttonwidth - inputwidth) / 2 - 4) + "px");
+      } else {
+        return quo('.timebutton').style('margin-left', "" + ((inputwidth - buttonwidth) / 2 - 4) + "px");
+      }
     } else {
-      containerWidth = Quo.environment().screen.width / 2;
+      containerWidth = environment.screen.width / 2;
       $$('.tcontainer').style('width', "" + containerWidth + "px");
       buttonwidth = (containerWidth / 2) - 3;
       $$('.timebutton').style('width', "" + buttonwidth + "px");
