@@ -1,5 +1,5 @@
-Quo.Pickers
-===========
+Quo.Pickers for lungo 2
+=======================
 Collection of pickers (Date picker and time picker) based on Quo.
 
 The master branch contains the ones optimized for lungo 2 and there is a branch for the ones optimized for lungo 1.2 or quo 2.1
